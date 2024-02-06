@@ -1,47 +1,37 @@
-function factors(num) {
-    const factors = [];
-    const primeFactors = [];
+function primeAndFactors(num) {
+    const factors = []
+    const prime = []
+    const notPrime = []
 
-    // Loop to find factors
-    for (let i = 1; i <= num; i++) {
-        if (num % i === 0) {
-            factors.push(i);
+    // Loop for finding the factors of the argument.
+    for (let i = 2; i <= num; i++) {
+        if(num%i===0){
+            factors.push(i)
         }
     }
 
-    // Loop to find prime factors
+    // Loop to find the prime numbers from the factors array.
+
     for (let i = 0; i < factors.length; i++) {
-        let isPrime = true;
+
+        let isPrime = true
 
         for (let j = 2; j < factors[i]; j++) {
-            console.log(factors[i])
-            if (factors[i] % j === 0) {
-                isPrime = false;
-                break;
+            if(factors[i]%j===0){
+                notPrime.push(factors[i])
+                isPrime = false
+                break
             }
         }
 
-        if (isPrime) {
-            primeFactors.push(factors[i]);
+        if(isPrime){
+            prime.push(factors[i])
         }
-        
+
     }
 
-    console.log("Factors:", factors);
-    console.log("Prime Factors:", primeFactors);
+    console.log( `These are prime numbers ` + prime)
+    console.log(`These are the non-prime numbers ` + notPrime)
+    console.log(factors)
 }
-
-factors(12);
-
-
-
-// function findPrime(num) {
-//     for (let i = 2; i < num; i++) {
-//         if(num%i==0){
-//             return false
-//         }        
-//     }
-//     return true
-// }
-// console.log(findPrime(6))
-// findPrime(3)
+primeAndFactors(12)
