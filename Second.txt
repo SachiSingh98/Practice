@@ -1,0 +1,1 @@
+This is my Before commit before checking out
